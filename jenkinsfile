@@ -1,0 +1,24 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building..'
+                sh 'docke build -t audi07/test1:v$BUILD_NUMBER -f Dockerfiel .'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Testing..'
+                sh 'ls'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying....'
+                sh 'docker push audi07/test1:v$BUILD_NUMBER'
+            }
+        }
+    }
+}
