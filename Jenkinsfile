@@ -5,7 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-                sh 'docke build -t audi07/test:$BUILD_NUMBER -f Dockerfile .'
+                sh 'docker build -t audi07/test:$BUILD_NUMBER -f Dockerfile .'
             }
         }
         stage('Test') {
